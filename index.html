@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep StoX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1><span style="color: #5367FF;">Keep</span><span style="color: #26D7AB;">StoX</span></h1>
+    <div class='div-select-stock'>
+        <select name="stocks-list" id="stocks-list">
+            <option value="TATAMOTORS">TATAMOTORS</option>
+            <option value="BHARTIARTL">BHARTIARTL</option>
+            <option value="ITC">ITC</option>
+            <option value="TCS">TCS</option>
+            <option value="RELIANCE">RELIANCE</option>
+            <option value="HDFCLIFE">HDFCLIFE</option>
+            <option value="SBIN">SBIN</option>
+            <option value="AMZN">AMZN</option>
+            <option value="GOOGL">GOOGL</option>
+        </select>
+    </div>
+    <div class='div-price-quantity'>
+        <input id='price' type="number" placeholder="Price" min=0></input>
+        <input id='quantity' type="number" placeholder="Quantity" min=0></input>
+    </div>
+    <div><button id='#check'>Check</button></div>
+    <div class="div-results">
+        <div class='div-profitloss profitloss'>
+            <h3 class='header-stock-name'>ARTL</h3>
+            <h1 class='header-profloss'>30.01 <span>🔼</span></h1>
+
+        </div>
+        <div class="div-profitloss profitlossperc">
+            <h3 class='header-stock-name'>ARTL</h3>
+            <h1 class='header-profloss'>30.01 <span>🔽</span></h1>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
