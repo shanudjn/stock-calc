@@ -9,6 +9,15 @@ var loadingPara = document.querySelector('#loading');
 var upEmoji = "🔼";
 var downEmoji = "🔽";
 
+var stockNameHeaderOne = document.querySelector('#header-one');
+var stockNameHeaderTwo = document.querySelector('#header-two');
+
+var differenceHeader = document.querySelector('#profit-loss-amount');
+var percentageHeader = document.querySelector('#profit-loss-percentage');
+
+var emoji = document.querySelector('#emoji');
+var percEmoji = document.querySelector('#perc-emoji')
+
 
 
 checkBtn.addEventListener("click", handleClick)
@@ -19,11 +28,11 @@ function handleClick() {
     let quantityValue = quantity.value;
     console.log(stockName, priceValue, quantityValue)
 
-    getCurrentStockPrice(stockName);
+    getCurrentStockPrice(stockName, priceValue, quantityValue);
 
 }
 
-function getCurrentStockPrice(stockName) {
+function getCurrentStockPrice(stockName, price, quantity) {
     var url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + stockName + "&apikey=" + apiKey;
     let stockPrice = 0;
     loadingPara.innerText = "Loading ..."
@@ -31,17 +40,37 @@ function getCurrentStockPrice(stockName) {
         .then(response => response.json())
         .then(json => {
             console.log(json);
-            handleJSON(json);
+            calculate(json, price, quantity);
             loadingPara.innerText = ""
 
         })
 
 }
-function handleJSON(json) {
+function calculate(json, price, quantity) {
     var result = json["Global Quote"]
-    console.log(result);
+    // console.log(result);
     var stockPrice = result["05. price"];
-    console.log(stockPrice);
+    // console.log(stockPrice);
+    let difference;
+    let userBuyPrice = price * quantity;
+    let currentPrice = stockPrice * quantity;
+    difference = currentPrice - userBuyPrice;
+    console.log(difference)
+    handleOutput(difference, userBuyPrice);
+}
+
+function handleOutput(difference, userBuyPrice) {
+    stockNameHeaderOne.innerText = stockList.value;
+    stockNameHeaderTwo.innerText = stockList.value;
+    var percentage = difference / userBuyPrice * 100
+    if (difference < 0) {
+        differenceHeader.innerText = difference.toFixed(2);
+        percentageHeader.innerText = percentage.toFixed(2) + "%";
+        emoji.innerHTML = downEmoji;
+        // console.log(emoji.innerText);
+        percEmoji.innerText = "🔼";
+        // console.log(percEmoji.innerText)
+    }
 }
 
 
