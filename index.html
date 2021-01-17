@@ -12,15 +12,15 @@
     <h1><span style="color: #5367FF;">Keep</span><span style="color: #26D7AB;">StoX</span></h1>
     <div class='div-select-stock'>
         <select name="stocks-list" id="stocks-list">
-            <option value="TATAMOTORS">TATAMOTORS</option>
-            <option value="BHARTIARTL">BHARTIARTL</option>
-            <option value="ITC">ITC</option>
+            <option selected>N/A</option>
+            <option value="TSLA">Tesla</option>
+            <option value="NFLX">Netflix</option>
             <option value="TCS">TCS</option>
-            <option value="RELIANCE">RELIANCE</option>
-            <option value="HDFCLIFE">HDFCLIFE</option>
-            <option value="SBIN">SBIN</option>
-            <option value="AMZN">AMZN</option>
-            <option value="GOOGL">GOOGL</option>
+            <option value="MSFT">Microsoft</option>
+            <option value="AAPL">Apple</option>
+            <option value="NVDA">Nvidia</option>
+            <option value="AMZN">Amazon</option>
+            <option value="GOOGL">Google</option>
         </select>
     </div>
     <div class='div-price-quantity'>
@@ -28,7 +28,9 @@
         <input id='quantity' type="number" placeholder="Quantity" min=0></input>
     </div>
     <div><button id='check'>Check</button></div>
-    <p id="loading"></p>
+    <div>
+        <p id="loading"></p>
+    </div>
     <div class="div-results">
         <div class='div-profitloss profitloss'>
             <h5>Profit/Loss</h5>

@@ -7,7 +7,7 @@ var checkBtn = document.querySelector('#check');
 var loadingPara = document.querySelector('#loading');
 
 var upEmoji = "🔼";
-var downEmoji = "🔽";
+var downEmoji = "🔻";
 
 var stockNameHeaderOne = document.querySelector('#header-one');
 var stockNameHeaderTwo = document.querySelector('#header-two');
@@ -64,12 +64,15 @@ function handleOutput(difference, userBuyPrice) {
     stockNameHeaderTwo.innerText = stockList.value;
     var percentage = difference / userBuyPrice * 100
     if (difference < 0) {
-        differenceHeader.innerText = difference.toFixed(2);
-        percentageHeader.innerText = percentage.toFixed(2) + "%";
-        emoji.innerHTML = downEmoji;
-        // console.log(emoji.innerText);
-        percEmoji.innerText = "🔼";
-        // console.log(percEmoji.innerText)
+        differenceHeader.innerText = difference.toFixed(2) + downEmoji;
+        percentageHeader.innerText = percentage.toFixed(2) + "%" + downEmoji;
+
+        // differenceHeader.style.color = "#876583"
+
+    }
+    else {
+        differenceHeader.innerText = difference.toFixed(2) + upEmoji;
+        percentageHeader.innerText = percentage.toFixed(2) + "%" + upEmoji;
     }
 }
 
